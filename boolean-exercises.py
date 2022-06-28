@@ -34,7 +34,7 @@ print(str(4) + "real")
 print(3 * "cool") # coolcoolcool
 
 # 12. Record the output of the expression 1 / 0.
-# print(1/0) # ZeroDivisionError: division by zero
+# ZeroDivisionError: division by zero
 
 # 13. Determine the type of [].
 # List
@@ -62,4 +62,4 @@ print("apple".find('l'))
 print("xylophone".find('y') >= 0)
 
 # 18. Check whether a string called my_string is all in lowercase.
-my_string.islower()
+# my_string.islower()
