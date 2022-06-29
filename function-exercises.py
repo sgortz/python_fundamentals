@@ -96,9 +96,9 @@ def single_letter_count(word, letter):
 exercise_6_1 = single_letter_count('amazing', 'A')  # 2
 exercise_6_2 = single_letter_count('amazing', 'Z')  # 1
 exercise_6_3 = single_letter_count('amazing', 'E')  # 0
-print('Should log 2: ', exercise_6_1)
-print('Should log 1: ', exercise_6_2)
-print('Should log 0: ', exercise_6_3)
+print('Should print 2: ', exercise_6_1)
+print('Should print 1: ', exercise_6_2)
+print('Should print 0: ', exercise_6_3)
 
 # 7. multiple_letter_count - this function takes in one parameter (a string) and returns a dictionary with the keys being the letters and the values being
 # the count of the letter.
@@ -158,14 +158,33 @@ print('Should print [1, 2, 3, 30]: ', exercise_8_4)
 
 def is_palindrome(param):
     new_list = list(param)
-    palind = new_list.reverse()
-    print('palind: ', palind)
+    middle_idx = abs(len(new_list) // 2)
+    print('middle_idx', middle_idx)
+    count = 0
+    
+    while count != middle_idx:
+        # if list is even num length
+        if len(new_list) % 2 == 0:
+            # if first char from 1 half is the same as 1st char of second half
+            if new_list[middle_idx - count] != new_list[middle_idx - (1 - count)]:
+
+                return False
+        else:
+            if new_list[middle_idx - count] != new_list[middle_idx + count]:
+                return False
+        print('count: ', count)    
+        count += 1
+    return True
 
 exercise_9_1 = is_palindrome('testing')  # False
-# exercise_9_2 = is_palindrome('tacocat')  # True
-# exercise_9_3 = is_palindrome('hannah')  # True
-# exercise_9_4 = is_palindrome('robert')  # False
+exercise_9_2 = is_palindrome('tacocat')  # True
+exercise_9_3 = is_palindrome('hannah')  # True
+exercise_9_4 = is_palindrome('robert')  # False
 
+print('Should print False: ', exercise_9_1)
+print('Should print True: ', exercise_9_2)
+print('Should print True: ', exercise_9_3)
+print('Should print False: ', exercise_9_4)
 # # 10. frequency - This function accepts a list and a search_term (this will always be a primitive value) and returns the number of times the search_term appears in the list.
 
 # frequency([1, 2, 3, 4, 4, 4], 4)  # 3
