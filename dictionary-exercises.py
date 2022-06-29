@@ -6,6 +6,9 @@ dictionary_1 = {tuples[0]: tuples[1]
                 for tuples in [("name", "Elie"), ("job", "Instructor")]}
 
 print('#1: ', dictionary_1)
+print('---------- Alternative answer ----------')
+dictionary_12 = {k:v for (k,v) in [("name", "Elie"), ("job", "Instructor")]}
+
 # 2. Given two lists ["CA", "NJ", "RI"] and ["California", "New Jersey", "Rhode Island"]
 # return a dictionary that looks like this {'CA': 'California', 'NJ': 'New Jersey', 'RI': 'Rhode Island'}.
 # You can research the zip method to help you.
@@ -50,3 +53,6 @@ print('#3: ', dictionary_3)
 
 dictionary_4 = dict(zip((num for num in range(1, 27)), (chr(num_2) for num_2 in range(65, 91))))
 print('#4: ', dictionary_4)
+
+# BONUS QUESTION: Given the string "awesome sauce" return a dictionary with the keys as vowels and the values as the count of vowels. 
+# Your dictionary should look like {'a': 2, 'e': 3, 'i': 0, 'o': 1, 'u': 1}
