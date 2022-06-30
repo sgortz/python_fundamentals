@@ -180,18 +180,20 @@ print('Should print 1: ', exercise_10_2)
 
 # 11. flip_case - This function accepts a string and a letter and reverses the case of all occurances of the letter in the string.
 def flip_case(str, target_letter):
-    new_list = list(str)
-    for letter in new_list:
-        if letter == target_letter:
-            letter.swapcase()
-
-    print(new_list)
-    
+    new_list = list()
+    # iterate through the list 
+    for letter in str:
+        #find letter
+        if letter.lower() == target_letter.lower():
+            letter = letter.swapcase()
+        new_list.append(letter)
     return ''.join(new_list)
+
+    # return ''.join([letter if letter.lower() == target_letter.lower(): letter.swapcase() else: letter for letter in str ])
     
 
 exercise_11 = flip_case("Hardy har har", "h")  # "hardy Har Har"
-print('Should print "hardy Har Har"', exercise_11)
+print('#11 Should print "hardy Har Har"', exercise_11)
 
 # 12. multiply_even_numbers - This function accepts a list of numbers and returns the product of all even numbers in the list.
 def multiply_even_numbers(num_list):
@@ -202,40 +204,87 @@ def multiply_even_numbers(num_list):
     return count
 
 exercise_12 = multiply_even_numbers([2, 3, 4, 5, 6])  # 48
-print('Should print 48: ', exercise_12)
+print('#12 Should print 48: ', exercise_12)
 
 # 13. mode - This function accepts a list of numbers and returns the most frequent number in the list of numbers. You can assume that the mode will be unique.
-# def mode(num_list):
+def mode(num_list):
+    max_num = num_list[0]
+    count = num_list.count(num_list[0])
+    
+    #iterate thru the list
+    for  num in num_list:
+        # if count of another one is higher,
+        if num_list.count(num) > count:
+            # reassign the count variable
+            count = num_list.count(num)
+            # and the max_num
+            max_num = num
 
+    return max_num
+    
 
-# exercise_13 = mode([2, 4, 1, 2, 3, 3, 4, 4, 5, 4, 4, 6, 4, 6, 7, 4])  # 4
-# print('Should print 4: ', exercise_13)
+exercise_13_1 = mode([2, 4, 1, 2, 3, 3, 4, 4, 5, 4, 4, 6, 4, 6, 7, 4])  # 4
+exercise_13_2 = mode([2, 7, 1, 2, 3, 3, 7, 7, 5, 7, 4, 6, 4, 6, 7, 4])  # 4
+print('Should print 4: ', exercise_13_1)
+print('Should print 7: ', exercise_13_2)
 
 # 14. capitalize - This function accepts a string and returns the same string with the first letter capitalized.
+def capitalize(str):
+    return str.capitalize()
 
-# capitalize("tim")  # "Tim"
-# capitalize("matt")  # "Matt"
-
+exercise_14_1 = capitalize("tim")  # "Tim"
+exercise_14_2 = capitalize("matt")  # "Matt"
+print('#14 Should print "Tim": ', exercise_14_1)
+print('#14 Should print "Matt": ', exercise_14_2)
 
 # 15. compact - This function accepts a list and returns a list of values that are truthy values.
+def compact(random_list):
+    # make a copy of the list
+    new_list = random_list.copy()
+    # iterate over the list
+    for value in new_list:
+    #if falsy value, remove that item
+        if bool(value) == False:
+            new_list.remove(value)
+    return new_list
 
-# compact([0, 1, 2, "", [], False, {}, None, "All done"])  # [1,2, "All done"]
+exercise_15_1 = compact([0, 1, 2, "", [], False, {}, None, "All done"])  # [1,2, "All done"]
+print('#15 Should print [1,2, "All done"]: ', exercise_15_1)
 
 # 16. partition - This function accepts a list and a callback function (which you can assume returns True or False).
 # The function should iterate over each element in the list and invoke the callback function at each iteration.
 # If the result of the callback function is True, the element should go into one list if it's False, the element should go into another list.
 # When it's finished, partition should return both lists inside of one larger list.
+def is_even(num):
+    return num % 2 == 0
+
+def partition(num_list, cb):
+    # create a list for falsy values and for truthy values inside the output list
+    partitioned_nums = [[],[]]
+    
+    # iterate thru the list
+    for num in num_list:
+        # check each element for truthfulness
+        if (cb(num)):
+        # add in one list or another accordingly
+            partitioned_nums[0].append(num)
+        else:
+            partitioned_nums[1].append(num)
+    
+    # return the main list
+    return partitioned_nums
 
 
-# def is_even(num):
-#     return num % 2 == 0
-
-
-# partition([1, 2, 3, 4], is_even)  # [[2,4],[1,3]]
+exercise_16 = partition([1, 2, 3, 4], is_even)  # [[2,4],[1,3]]
+print('#16 Should print [[2,4],[1,3]]: ', exercise_16)
 
 # 17. intersection - This function should accept a two dimensional list and return a list with the values that are the same in each list.
+def intersection(num_list):
+    
 
-# intersection([1, 2, 3], [2, 3, 4])  # [2,3]
+
+exercise_17 = intersection([[1, 2, 3], [2, 3, 4]])  # [2,3]
+print('#17 Should print [2,3]: ', exercise_17)
 
 # 18. once - This function accepts a function and returns a new function that can only be invoked once. If the function is invoked more than once,
 # it should return None. Hint you will need to define a new function inside of your once function and return that function. You can add properties
