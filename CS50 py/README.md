@@ -154,7 +154,7 @@ Scope is the location where a variable's value is valid or where it's available 
 
 
 ## Conditionals
-Python comes with built-in syntax for conditions, such as 
+Python comes with built-in syntax previously introduced to us by Math that allows for the program to have conditionals of truthness or falsiness.
 
 ```py
 >  # greater than
@@ -164,12 +164,16 @@ Python comes with built-in syntax for conditions, such as
 == # equal to
 != # not equal to
 
+print(1 < 2) # prints True
+print(10 == 20) # prints False
+
 and # conjuction of conditionals
 or  # choice between one of the conditionals
 
 if 
 elif
 else
+
 ```
 
 ## Loops
