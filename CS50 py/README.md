@@ -4,7 +4,7 @@ Python is not only a language to write code but also a program (an interpreter) 
 
 ## Interactive Mode
 
-Python supports interactive mode, we you can write code and immediately execute the code interactively. This is specially useful because sometimes you don't want to save lines of code, you're just looking for some answers. To enable the interactive mode, you need to install Python locally on your computer and have access to the Terminal in order to open the Python IDE, with the command ```python```. To terminate the session, just type ```control + d```.
+Python also supports __interactive mode__, where you can write code and immediately execute interactively. This is specially useful because sometimes you don't want to save lines of code, you're just looking for quick answers. To enable the interactive mode, you need to install Python locally on your computer and have access to the Terminal in order to open the Python IDE, with the command ```python```. To terminate the session, just type ```control + d```.
 
 
 ## Functions, arguments and side effects
@@ -18,27 +18,8 @@ When looking at the example above, we can see that Python comes with pre-defined
 So this ```print()``` function has the ability to take as input a string of text that hold the information the user wants to print onto the screen. As a result -- or better known as  ```side effect``` -- to invoking this function, the program then prints onto the screen the piece of text the user passed in as argument.
 
 
-## Variables
-Variables are just a container for some value stored in memory.
-
-  ```py
-  name = input("What's your name?")
-  print("Hello,", name)
-  ```
-
-
-## Comments and pseudocode
-You can add comments in your code with the hash sign ```#```. When the program is hundreds of lines of code, you can add comments to highlight what each section is.
-
-  ```py
-  # This is a comment
-  print('This is fun.')
-  ```
-
-Another great usage of the ```#``` is for pseudocoding. Pseudocode is used in plain english to express your train of thoughts. It allows you to outline your program in plain English and without code.
-
-
 ## Reading the Documentation
+
 If you refer to the [official documentation](https://docs.python.org/3/library/functions.html#print) for the built-in functions in Python, you'll see the following syntax:
 ```print(*objects, sep=' ', end='\n', file=sys.stdout, flush=False)```\
 What this tells us is that you can customize how you want information to be printed on your Terminal. If you want the separation of each argument to be a different value than the default value, all you have to do is pass in the customized instructions as arguments to the function.
@@ -51,6 +32,27 @@ What this tells us is that you can customize how you want information to be prin
    print('World', end='.')
    # prints "Hello World." in one line
    ```
+
+
+## Variables
+Variables are just a container for some value stored in memory.
+
+  ```py
+  name = input("What's your name?")
+  print("Hello,", name)
+  ```
+
+
+## Comments and pseudocode
+
+You can add comments in your code with the hash sign ```#```. When the program is hundreds of lines of code, you can add comments to highlight what each section is.
+
+  ```py
+  # This is a comment
+  print('This is fun.')
+  ```
+
+Another great usage of the ```#``` is for pseudocoding. Pseudocode is used in plain english to express your train of thoughts. It allows you to outline your program in plain English and without code.
 
 
 ##  Printing strings
@@ -95,4 +97,119 @@ Instead of having several lines of code in order to modify the state of your inp
 
 
 
-##
+## Integers and floats
+
+Integers, just like strings and functions, also have __built-in methods__. Floats are numbers with decimal points. It takes the name from "floating point" values.
+
+```py
+x = input("What's x?") # 1
+y = input("What's y?") # 2
+
+print(x + y) # prints 12
+print(int(x) + int(y)) # prints 3
+
+# Option 2:
+x = int(input("What's x?")) # 1
+y = int(input("What's y?")) # 2
+print(x + y) # prints 12
+```
+
+```round(number[,ndigits])``` usually square brackets in documentations mean something optional. This means you can specify the number of digits you want to round your number to. 
+
+```py
+x = int(input("What's x?")) # 999
+y = int(input("What's y?")) # 1
+z = x + y
+
+print(z) # prints 1000
+print(f"{z:,}") # prints 1,000
+```
+This is the way to tell python to add commas to long numbers. You can switch to dots depending on the country you're in. 
+
+```py
+x = float(input("What's x?")) # 2
+y = float(input("What's y?")) # 3
+
+z = x / y
+print(z) # prints 0.6666666666...
+
+z = round(x / y, 2) # specifying 2 digits after the floating point
+print(z) # prints prints 0.67
+
+z = x / y
+print(f"{z:.2f}") # also prints 0.67
+```
+
+## Function definition
+```py
+def hello(to="world"):
+    print("hello,", to)
+
+hello()
+name = input("What's your name?")
+hello(name)
+```
+
+Scope is the location where a variable's value is valid or where it's available for you to use.
+
+
+## Conditionals
+Python comes with built-in syntax for conditions, such as 
+
+```py
+>  # greater than
+>= # greater than or equal to
+<  # less than
+<= # less than or equal to
+== # equal to
+!= # not equal to
+
+and # conjuction of conditionals
+or  # choice between one of the conditionals
+
+if 
+elif
+else
+```
+
+## Loops
+
+### while Loop
+The ```while``` loop allows me to repeat an action while the loop conditional still evaluates to ```True```. If you end up in an infinite loop, ```control + c``` should stop terminate the Terminal session.
+
+   ```py
+   i = 0
+
+   while i < 4:
+     print("Meow")
+     i += 1
+
+   ```
+
+### for Loop
+
+For loops are commonly used for Lists and Dictionaries.
+   ```py
+   for i in [0, 1, 2]:
+     print("Meow")
+   ```
+
+There's a convention in Python where if you need a variable just because just because the programming feature requires it to do some sort of counting that is useless to the program, a pyhtonic refactoring would be to rename the useless variable with ```_```.
+   ```py
+   for _ in range(3)
+      print("meow")
+
+   print("meow" * 3)
+   ```
+
+Printing "meow" as many times as the user wants:
+   ```py
+   while True:
+      n = int(input("What's n? "))
+      if n > 0:
+        break
+   for _ in range(n):
+        print ("meow")
+   ```
+
+   
