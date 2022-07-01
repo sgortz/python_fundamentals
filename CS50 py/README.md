@@ -1,6 +1,6 @@
 # Introduction to Python
 
-Python is not only a language to write code but also a program (an interpreter) that you install globally on your computer. You can run the program passing in as input the name of your working python file ```py python hello.py``` and the interpreter will handle the process of read the document, top to bottom and translating effectively to binary language.
+Python is not only a language to write code but also a program (an interpreter) that you install globally on your computer. You can run the program passing in as input the name of your working python file ```python hello.py``` and the interpreter will handle the process of read the document, top to bottom and translating effectively to binary language.
 
 
 ## Functions, arguments and side effects
