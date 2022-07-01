@@ -2,8 +2,13 @@
 
 Python is not only a language to write code but also a program (an interpreter) that you install globally on your computer. You can run the program passing in as input the name of your working python file ```python hello.py``` and the interpreter will handle the process of read the document, top to bottom and translating effectively to binary language.
 
+## Interactive Mode
+
+Python supports interactive mode, we you can write code and immediately execute the code interactively. This is specially useful because sometimes you don't want to save lines of code, you're just looking for some answers. To enable the interactive mode, you need to install Python locally on your computer and have access to the Terminal in order to open the Python IDE, with the command ```python```. To terminate the session, just type ```control + d```.
+
 
 ## Functions, arguments and side effects
+
   ```py
   print('Hello World')
   ```
@@ -11,7 +16,7 @@ Python is not only a language to write code but also a program (an interpreter) 
 When looking at the example above, we can see that Python comes with pre-defined ```functions``` that have a default behavior. Functions are an action or a verb that lets you do something in the program. Functions can accept ```arguments``` where the user can choose the value to pass in. An argument is an input to a function that somehow influences its behaviour.
 
 So this ```print()``` function has the ability to take as input a string of text that hold the information the user wants to print onto the screen. As a result -- or better known as  ```side effect``` -- to invoking this function, the program then prints onto the screen the piece of text the user passed in as argument.
-\
+
 
 ## Variables
 Variables are just a container for some value stored in memory.
@@ -20,7 +25,7 @@ Variables are just a container for some value stored in memory.
   name = input("What's your name?")
   print("Hello,", name)
   ```
-\
+
 
 ## Comments and pseudocode
 You can add comments in your code with the hash sign ```#```. When the program is hundreds of lines of code, you can add comments to highlight what each section is.
@@ -31,12 +36,13 @@ You can add comments in your code with the hash sign ```#```. When the program i
   ```
 
 Another great usage of the ```#``` is for pseudocoding. Pseudocode is used in plain english to express your train of thoughts. It allows you to outline your program in plain English and without code.
-\
+
 
 ## Reading the Documentation
 If you refer to the [official documentation](https://docs.python.org/3/library/functions.html#print) for the built-in functions in Python, you'll see the following syntax:
-```print(*objects, sep=' ', end='\n', file=sys.stdout, flush=False)```
+```print(*objects, sep=' ', end='\n', file=sys.stdout, flush=False)```\
 What this tells us is that you can customize how you want information to be printed on your Terminal. If you want the separation of each argument to be a different value than the default value, all you have to do is pass in the customized instructions as arguments to the function.
+
    ```py
    print('Hello', 'World', sep='-', end='.') 
    # prints "Hello-World."
@@ -86,3 +92,7 @@ Instead of having several lines of code in order to modify the state of your inp
    name = input("What's your name?").strip().title()
    print(f"hello, {name}")
    ```
+
+
+
+##
