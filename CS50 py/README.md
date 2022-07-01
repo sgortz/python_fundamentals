@@ -14,16 +14,22 @@ So this ```print()``` function has the ability to take as input a string of text
 
 
 ## Variables
-Variables re just a container for some value stored in memory.
+Variables are just a container for some value stored in memory.
 
   ```py
   name = input("What's your name?")
-  print("Hello, ", name)
+  print("Hello,", name)
   ```
 
-## Comments
-You can add comments in your code with the hash sign ```#```.
+## Comments and pseudocode
+You can add comments in your code with the hash sign ```#```. When the program is hundreds of lines of code, you can add comments to highlight what each section is.
+
   ```py
   # This is a comment
   print("This is fun.")
   ```
+
+Another great usage of the ```#``` is for pseudocoding. Pseudocode is used in plain english to express your train of thoughts. It allows you to outline your program in plain English and without code.
+
+
+## Str
