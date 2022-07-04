@@ -178,42 +178,71 @@ else
 
 ## Loops
 
-### while Loop
-The ```while``` loop allows me to repeat an action while the loop conditional still evaluates to ```True```. If you end up in an infinite loop, ```control + c``` should stop terminate the Terminal session.
+### ```while``` Loop
+This loop allows me to repeat an action while the loop conditional still evaluates to ```True```.\
 
    ```py
    i = 0
 
    while i < 4:
-     print("Meow")
-     i += 1
+       print("Meow")
+       i += 1
+       # note how in Python i++ or i-- doesn't exist like in JS, C, or C++
 
    ```
 
-### for Loop
+__Note:__ If you find yourself in an infinite loop, ```control + c``` for _cancel_, or _interrupt_ should terminate the session.
 
-For loops are commonly used for Lists and Dictionaries.
+### ```for``` Loop
+This loop is commonly used to iterate through collections, such as Lists and Dictionaries.
+
    ```py
    for i in [0, 1, 2]:
-     print("Meow")
+       print("Meow")
    ```
 
-There's a convention in Python where if you need a variable just because just because the programming feature requires it to do some sort of counting that is useless to the program, a pyhtonic refactoring would be to rename the useless variable with ```_```.
+__Note:__ There's a convention in Python where if you need a variable just because the built-in feature requires it to do some sort of counting that is useless to the program, a pyhtonic refactoring would be to rename the useless variable with ```_```.
+
    ```py
    for _ in range(3)
       print("meow")
 
+   # Alternately, you can also perform math expressions to repeat strings
    print("meow" * 3)
-   ```
 
-Printing "meow" as many times as the user wants:
-   ```py
+   # Printing "meow" as many times as the user wants:
    while True:
       n = int(input("What's n? "))
       if n > 0:
-        break
+          break
+
    for _ in range(n):
         print ("meow")
    ```
 
-   
+## Lists
+It's another data type in Python, to contain multiple values in one place.
+
+## Debugging
+You can always use ```print()``` to see in the terminal window your variables. But this option isn't always the best one. Some IDE comes with __built-in debuggers tools__ to help you solve your bugs, including VS Code.
+1. __breakpoints__: A mechanism that allows us to specify on what line(s) you want to pause or break in your code to get a better look. It slows down the execution of the program.
+2. When adding breakpoints in VS Code, you need to run the debugger. Click __Run and Debug__ or ```command + shift + d``` \
+   a. The __continue__ button, is for the code to continue on to the end of the program.\
+   b. Next, is the __step over__ button, this would allow me to step over the current line executing it, but not going inside the function.\
+   c. The __step into__ steps inside the function and continue step-by-step, line-by-line of the code.\
+   d. The __step out__ button steps out of the function the thread of execution is currently in.
+3. You can see the variable environment of your program in the local and global tabs.
+
+## Style Guide
+Mostly all Python programmers adhere to (or are expected to adhere to) the PEP 8 style of code. __Python Enhancement Proposal__ (or PEP) is a set of proposal that the community comes up to codify certain standards. PEP 8 tries to standardize what our code should look like. 
+Sometimes your code might not have bugs, but it's harder to maintain or it is prone to bugs down the line. So it's a good thing that your code is properly formatted. For more details, visit [PEP 8 Official Documentation](peps.python.org/pep-0008/).
+How do you go about styling your code?
+- Indentation
+- Tabs or spaces?
+- Maximum Line Length
+- Blank Lines
+- Imports
+
+In the Python world, there is no tabs, and the indentation is 4 spaces. White spaces are encouraged for better visualization of blocks of code.
+
+The most common linter for Python is called [_pylint_](https://pypi.org/project/pylint/) and can be install with the command ```pip install pylint```. A little less noisy program is called [_pycodestyle_](pycodestyle.pycqa.org) which follows the de facto standard within the python community for formatting your code. It takes care of reformatting your code for you. Another alternative that is gaining more popularity is [_black_](black.readthedocs.io). This is a program that you can install with pip as well: ```pip install black```, and it is a little more opinionated than the previous options.
