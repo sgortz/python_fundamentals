@@ -170,12 +170,51 @@ print(10 == 20) # prints False
 and # conjuction of conditionals
 or  # choice between one of the conditionals
 
-if 
-elif
-else
+
+```
+Conditionals using __Control Flow__ in Python utilizes 3 keywords: ```if```, ```elif```, ```else```
+
+```py
+def is_even(n):
+   if n % 2 == 0:
+      return True
+   else:
+    return False
+
+# a more pythonic way of writing the code above is
+def is_even(n):
+    return True if n % 2 == 0 else False
+
+# Alternatively
+def is_even(n):
+    return n % 2 == 0
 
 ```
 
+Another keyword in the newer version of Python that is also used for conditionals, or flow control is the ```match``` keyword.
+
+```py
+name = input("What's your name?")
+
+match name:
+    case "Harry":
+        print("Griffindor")
+    case "Ron":
+        print("Griffindor")
+    case "Draco":
+        print("Slytherin")
+    case _:
+        print("Who?")
+
+# Alternatively
+match name:
+    case "Harry" | "Hermione" | "Ron":
+        print("Griffindor")
+    case "Draco":
+        print("Slytherin")
+    case _:
+        print("Who?")
+```
 ## Loops
 
 ### ```while``` Loop
@@ -194,34 +233,67 @@ This loop allows me to repeat an action while the loop conditional still evaluat
 __Note:__ If you find yourself in an infinite loop, ```control + c``` for _cancel_, or _interrupt_ should terminate the session.
 
 ### ```for``` Loop
-This loop is commonly used to iterate through collections, such as Lists and Dictionaries.
+This loop is commonly used to iterate through collections, such as Lists and Dictionaries. This syntax is also much shorter and easier to read.
 
    ```py
    for i in [0, 1, 2]:
+       print("Meow")
+
+   # Alternatively, even easier code to write
+   for i in range(3):
        print("Meow")
    ```
 
 __Note:__ There's a convention in Python where if you need a variable just because the built-in feature requires it to do some sort of counting that is useless to the program, a pyhtonic refactoring would be to rename the useless variable with ```_```.
 
    ```py
-   for _ in range(3)
+   for _ in range(3):
       print("meow")
 
    # Alternately, you can also perform math expressions to repeat strings
-   print("meow" * 3)
+   print("meow\n" * 3, end='')
 
    # Printing "meow" as many times as the user wants:
    while True:
       n = int(input("What's n? "))
       if n > 0:
           break
-
    for _ in range(n):
         print ("meow")
    ```
 
+
 ## Lists
-It's another data type in Python, to contain multiple values in one place.
+It's another data type in Python, to contain multiple values in one place. Iterating the list is done with for loops:
+```py
+students = ["Hermione", "Harry", "Ron"]
+
+for student in students:
+   print(student)
+```
+
+If you want to iterate through the numeric indexes of lists, retrieve the length of the list with the ```len``` method, combined with the ```range``` method:
+
+```py
+students = ["Hermione", "Harry", "Ron"]
+
+for i in range(len(students)):
+   print(students[i])
+```
+
+## Dictionary
+Dictionaries allow you to combine one value with another. These pair of values are known as key-value pairs.
+
+```py
+students = {
+   "name": "Hermione",
+   "house": "Griffindor"
+}
+
+for student in students:
+   print(student, students[student]) # name, Hermione, house, Griffindor
+
+```
 
 ## Debugging
 You can always use ```print()``` to see in the terminal window your variables. But this option isn't always the best one. Some IDE comes with __built-in debuggers tools__ to help you solve your bugs, including VS Code.
