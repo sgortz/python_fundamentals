@@ -305,6 +305,70 @@ You can always use ```print()``` to see in the terminal window your variables. B
    d. The __step out__ button steps out of the function the thread of execution is currently in.
 3. You can see the variable environment of your program in the local and global tabs.
 
+## Exceptions (Error Handling)
+Exceptions are things that go wrong within our coding.
+
+### Runtime Error
+Runtime errors refer to those created by unexpected behavior within your code. For example, perhaps you intended for a user to input a number, but they input a character instead. Your program may throw an error because of this unexpected input from the user. You can learn more in [Python’s documentation of Errors and Exceptions](https://docs.python.org/3/tutorial/errors.html).
+
+### ```try```
+In Python ```try``` and ```except``` are ways of testing out user input before something goes wrong. Consider the following example:
+```py
+try:
+    x = int(input("What's x?"))
+    printf(f"x is {x}")
+except ValueError:
+    print("x is not an integer")
+```
+Now, if you input an integer, the code will run correctly. If you input a string, the user will still see an error message instead of our print message on the except block. 
+
+One way to fix this is to move the print statement to the bottom, so that the except block is able to catch the error:
+```py
+try:
+    x = int(input("What's x?"))
+except ValueError:
+    print("x is not an integer")
+
+printf(f"x is {x}")
+```
+Now, if we try to run this program, we'll see that ```x``` is returning us a ```NameError```. This happened because if the user doesn't input an integer, then the ```int()``` function won't work and ```x``` will never get assigned. 
+
+To fix this, we can introduce a ```else``` statement:
+```py
+try:
+    x = int(input("What's x?"))
+except ValueError:
+    print("x is not an integer")
+else:
+    print(f"x is {x}")
+```
+
+Considering improving our code, notice that we are being a bit rude to our user. If our user does not cooperate, we currently simply end our program. Consider how we can use a loop to prompt the user for ```x``` and if they don’t prompt again!
+```py
+while True:
+    try:
+        x = int(input("What's x?"))
+    except ValueError:
+        print("x is not an integer")
+    else:
+        break
+
+print(f"x is {x}")
+```
+
+### ```pass```
+Instead of prompting the user with an error message, we can simply re-asks them our prompting question by using the ```pass``` keyword:
+```py
+while True:
+    try:
+        x = int(input("What's x?"))
+    except ValueError:
+        pass
+
+print(f"x is {x}")
+```
+You can learn more in Python’s documentation of [pass](https://docs.python.org/3/tutorial/controlflow.html#pass-statements).
+
 ## Style Guide
 Mostly all Python programmers adhere to (or are expected to adhere to) the PEP 8 style of code. __Python Enhancement Proposal__ (or PEP) is a set of proposal that the community comes up to codify certain standards. PEP 8 tries to standardize what our code should look like. 
 Sometimes your code might not have bugs, but it's harder to maintain or it is prone to bugs down the line. So it's a good thing that your code is properly formatted. For more details, visit [PEP 8 Official Documentation](peps.python.org/pep-0008/).
