@@ -1,2 +1,4 @@
-# print('Hello', 'World', sep='-', end='.')
-print("Hello, \"friend\"") # also prints Hello, "friend"
+
+
+x = range(3)
+print(x)
